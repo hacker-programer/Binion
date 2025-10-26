@@ -5,6 +5,7 @@
 #include <string>
 
 struct Binion {
+    Binion() = default;
     struct Format {
         std::vector<char> data;
         std::function<bool(const char*, size_t)> getEnd;
