@@ -46,29 +46,24 @@ struct Binion {
         file.close();
     }
 
-    Structure readStructure(const std::string& filename,
-                            const std::vector<std::function<bool(const char*, size_t)>>& getEndFuncs) {
+    void readStructure(const std::string& filename, Binion::Structure& s) {
         std::ifstream file(filename, std::ios::binary);
         if (!file.is_open()) {
             std::cerr << "No se pudo abrir el archivo para lectura.\n";
-            return {};
+            return;
         }
 
-        Structure s;
-
-        for (const auto& func : getEndFuncs) {
-            std::vector<char> buffer;
+        for (auto& fmt : s.formats) {
+            fmt.data.clear(); // asegurarnos de empezar vacío
             char c;
             while (file.get(c)) {
-                buffer.push_back(c);
-                if (func(buffer.data(), buffer.size())) {
+                fmt.data.push_back(c);
+                if (fmt.getEnd(fmt.data.data(), fmt.data.size())) {
                     break;
                 }
             }
-            s.addFormat(Format(buffer.data(), buffer.size(), func));
         }
 
         file.close();
-        return s;
     }
 };
