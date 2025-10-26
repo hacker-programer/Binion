@@ -1,0 +1,11 @@
+Copyright (c) 2025 Facundo Efimenco
+
+Todos los derechos reservados.
+
+Se permite usar, modificar y ejecutar este software para fines personales, internos o comerciales.
+
+Se prohíbe estrictamente la redistribución del código fuente de este software, o de obras derivadas, sin autorización previa por escrito del autor. La redistribución de programas compilados o ejecutables que utilicen este software está permitida.
+
+Se permite realizar modificaciones para uso privado o comercial, pero la redistribución de código fuente modificado requiere autorización explícita del autor.
+
+Al usar este software, aceptas estos términos.
